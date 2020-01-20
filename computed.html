@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>《Vue.js实战》-3  计算属性</title>
+        <!-- 计算属性专门对计算方面做了优化 -->
+    </head>
+    <body>
+        <div id="app-1">
+            {{ reversedText }}
+        </div>
+
+        <!-- 计算属性可以依赖多个Vue实例的数据，只要其中任一数据变化，计算属性就会重新执行，视图也会重新更新 -->
+        <div id="app-2">
+            总价：{{ prices }}
+        </div>
+
+        <div id="app-3">
+            姓名：{{ fullName }}<br>
+            <input type="text">
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            var app1 = new Vue({
+                el:'#app-1',
+                data:{
+                    text:'123,456'
+                },
+                computed:{
+                    reversedText:function(){
+                        return this.text.split(',').reverse().join(',');
+                    }
+                }
+            });
+
+            var app2 = new Vue({
+                el:'#app-2',
+                data:{
+                    package1:[
+                        {
+                            name:'iPhone10',
+                            price: 5211,
+                            count:2
+                        },
+                        {
+                            name:'iPad',
+                            price:2999,
+                            count:1
+                        },
+                        {
+                            name:'MackBook',
+                            price:9999,
+                            count:3
+                        }
+                    ],
+                    package2:[
+                        {
+                            name:'apple',
+                            price:3,
+                            count:5
+                        },
+                        {
+                            name:'banana',
+                            price:2,
+                            count:10
+                        }
+                    ]
+                },
+                computed:{
+                    // 当只有一个方法时，默认是get方法
+                    prices:function(){
+                        var prices=0;
+                        for(var i=0;i<this.package1.length;i++){
+                            prices+=this.package1[i].price*this.package1[i].count;
+                        }
+                        for(var i=0;i<this.package2.length;i++){
+                            prices+=this.package2[i].price*this.package2[i].count;
+                        }
+                        return prices;
+                    }
+                }
+            });
+
+            var app3 = new Vue({
+                el:'#app-3',
+                data:{
+                    firstName:'Jack',
+                    lastName:'Green'
+                },
+                computed:{
+                    fullName:{
+                        // 读取时触发
+                        get:function(){
+                            return this.firstName+' '+this.lastName;
+                        },
+                        // 写入时触发
+                        set:function(newValue){
+                            var names = newValue.split(" ");
+                            this.firstName = names[0];
+                            this.lastName = names[names.length-1];
+                        }
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

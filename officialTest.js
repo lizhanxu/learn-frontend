@@ -2,9 +2,12 @@
 
 // 文本插值
 var app = new Vue({
-    el: '#app',
+    // el用于指定一个页面中已经存在的DOM元素来挂载Vue实例，它可以是HTMLElement，也可以是CSS选择器。
+    el: '#app',//或者document.getElementById('app'),但是尽量不要这么写。
+    // 挂载成功后可以通过app.$el来访问该元素。Vue中提供了许多常用的实例属性和方法，都以$开头，以便与用户定义的属性区分。
     data: {
         message: 'Hello Vue!'
+        // 可以通过app.message来访问该属性。
     }
 })
 

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>《Vue.js实战》-1</title>
+    </head>
+    <body>
+        <div id="app-1">
+            <!-- 管道符|   使用过滤器对数据进行过滤 -->
+            <!-- 过滤器可以串联 如： {{ date | filter1 | filter2 }}  -->
+            <!-- 过滤器可以接收参数 如：{{ date | filter('arg1','arg2') }} ,这里的arg1和arg2将作为过滤器的第二个和第三个参数，第一个参数为数据本身-->
+            <!-- 过滤器应当用于处理简单的文本转换，对于更复杂的计算，应该使用计算属性 -->
+            {{ date | formatDate }}
+        </div>
+
+        <div id="app-2">
+            <!-- {{}}中可以进行简单的运算,但不支持语句和流程控制，不能使用用户自定义的全局变量 -->
+            <p>{{number/10}}</p>
+            <p>{{isOK ? '确定' : '取消'}}</p>
+            <p>{{text.split(',').reverse().join(':')}}</p>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            // 在小于10在前面补0
+            var padDate = function(value){
+                return value < 10 ? "0"+value : value;
+            }
+
+            var app1 = new Vue({
+                el: '#app-1',
+                data: {
+                    date: new Date()
+                },
+                // 通过该字段添加过滤器
+                filters:{
+                    formatDate: function(value){
+                        var date = new Date(value);
+                        var year = date.getFullYear();
+                        var month = padDate(date.getMonth()+1);
+                        var day = padDate(date.getDay());
+                        var hours = padDate(date.getHours());
+                        var minutes = padDate(date.getMinutes());
+                        var seconds = padDate(date.getSeconds());
+                        return year+'-'+month+'-'+day+' '+hours+'-'+':'+minutes+':'+seconds;
+                    }
+                },
+                mounted: function(){
+                    var _this = this;//声明一个变量指向Vue实例的this，保证作用域一致
+                    //setInterval()方法设置定时任务
+                    this.timer = setInterval(function(){
+                        //如果在这里使用this，这个this指的是timer，而不是Vue实例
+                        _this.date = new Date();//修改数据date
+                    },1000);
+                },
+                beforeDestory: function(){
+                    if(this.timer){
+                        clearInterval(this.timer);//在Vue实例销毁前，清除定时器
+                    }
+                }
+            });
+
+            var app2 = new Vue({
+                el: '#app-2',
+                data:{
+                    number: 100,
+                    isOK: false,
+                    text: '123,456'
+                }
+            });
+        </script>
+    </body>
+</html>
