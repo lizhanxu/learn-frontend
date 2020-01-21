@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>《Vue.js实战》-4 class绑定</title>
+    </head>
+    <body>
+        <div id="app-1">
+            <!-- 渲染结果为<div class="active error"></div> -->
+            <div :class="{'active':isActive,'error':isError}"></div>
+
+            <!-- 使用计算属性，渲染结果为<div class="active error"></div>-->
+            <div :class="classes"></div>
+
+            <!-- 使用数组语法，渲染结果为<div class="active error"></div> -->
+            <div :class="[activeCls,errorCls]"></div>
+
+            <!-- 前一个类名使用三目运算，渲染结果为<div class="active error"></div> -->
+            <div :class="[isActive?activeCl:'' , errorCls]"></div>
+
+            <!-- 渲染结果为<button class="btn btn-large btn-disabled"></button> -->
+            <button :class="btnclasses"></button>
+        </div>
+
+        <div>
+            <!-- 在组件中绑定class，渲染结果为<p class="article active">一些文本</p> -->
+            <my-component :class="{'active':isActive}"></my-component>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app1 = new Vue({
+            el:'#app-1',
+            data:{
+                isActive:true,
+                isError:true,
+                
+                // 数组语法
+                activeCls:'active',
+                errorCls:'error',
+
+                size:'large',
+                disabled:true
+            },
+            computed:{
+                classes:function(){
+                    return {
+                        active: this.isActive,
+                        error: this.isError
+                    }
+                },
+                btnclasses:function(){
+                    return [
+                        'btn',
+                        {
+                            ['btn'+this.size]:this.size !== '',
+                            ['btn-disabled']:this.disabled
+                        }
+                    ]
+                }
+            }
+        });
+
+        Vue.component('my-component',{
+            // 组件中设置class会直接应用到这个组件的根元素上
+            template:'<p class="article">一些文本</p>'
+        })
+        var app2 = new Vue({
+            el:'#app-2',
+            data:{
+                isActive:true
+            }
+        })
+    </script>
+</html>

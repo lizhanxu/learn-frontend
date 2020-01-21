@@ -15,6 +15,13 @@
             <button @click="handleClose">点击隐藏</button>
         </div>
 
+        <div id="app-5">
+            <!-- Vue提供了特殊变量$event用以访问原生的DOM事件 -->
+            <a href="first.html" @click="handleClick('禁止打开',$event)">禁止连接</a>
+            <!-- event.preventDefault();可以用@click.prevent代替 -->
+            <!-- 事件修饰符 .stop  .prevent  .capture  .self  .once -->
+        </div>
+
         <div id="app-2">
             <!-- v-html插入HTML -->
             <span v-html="link"></span>
@@ -26,8 +33,10 @@
             <a :href="url">v-bind链接</a>
         </div>
 
-        <div>
-            
+        <div id="app-4">
+            <ul>
+                <li v-for="(book,index) in books">{{index}} - {{book.name}}</li>
+            </ul>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -53,6 +62,17 @@
                 }
             });
 
+            var app5 = new Vue({
+                el:'#app-5',
+                methods:{
+                    handleClick:function(message,event){
+                        // 该方法通知浏览器取消动作
+                        event.preventDefault();
+                        window.alert(message);
+                    }
+                }
+            })
+
             var app2 = new Vue({
                 el: '#app-2',
                 data: {
@@ -65,7 +85,18 @@
                 data:{
                     url:'first.html'
                 }
-            })
+            });
+
+            var app4 = new Vue({
+                el:'#app-4',
+                data:{
+                    books:[
+                        {name:'Tom'},
+                        {name:'Jhon'},
+                        {name:'Lee'}
+                    ]
+                }
+            });
         </script>
     </body>
 </html>

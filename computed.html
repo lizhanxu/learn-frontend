@@ -16,8 +16,10 @@
         </div>
 
         <div id="app-3">
-            姓名：{{ fullName }}<br>
-            <input type="text">
+            <p>姓名：{{ fullName }}</p>
+            <!-- 通过ref属性来获取input的内容 -->
+            <input type="text" name="fullName" ref="input">
+            <button @click="submit">提交</button>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -87,6 +89,15 @@
                 data:{
                     firstName:'Jack',
                     lastName:'Green'
+                },
+                methods:{
+                    submit:function(){
+                        // 通过ref获取input内容
+                        // 写入触发set方法
+                        app3.fullName=this.$refs.input.value;
+                        console.log(this.firstName);
+                        console.log(this.lastName);
+                    }
                 },
                 computed:{
                     fullName:{

@@ -73,11 +73,68 @@ beforeDestroy：实例销毁之前调用。
 
 ### v-bind
 
+语法糖  ：
+绑定属性
+
+### v-on
+
+语法糖  @
+
+绑定事件
+
 ### v-model
+
+vue提供的一个语法糖，它等价于 v-bind: + v-on，来实现同步更新。
 
 ### v-html
 
 输出HTML
+
+### v-once
+
+是一个不需要表达式的指令，作用是只渲染一次，在性能优化时可能用到
+
+### v-clock
+
+在Vue实例结束编译时从绑定的HTML元素上移除
+
+作用：解决刷新或者加载出现闪烁
+
+### 条件渲染
+
+v-if v-elseif v-else
+
+如果一次判断的是多个元素，可以使用`<template>`包裹起来
+
+### v-show和v-if
+
+用法和v-if基本一致，不过v-show改变的是css属性的display（style="display:none"），仅仅是隐藏。
+
+v-if才是真正的条件渲染，它会根据表达式适当地销毁或重建元素及绑定的事件或子组件。若表达式初始值为false则一开始不会渲染。
+
+v-show只是简单的css属性切换，无论条件真假都会编译。
+
+v-if更适合不经常改变的场景，v-show适用于频繁切换条件
+
+### v-for 列表渲染指令
+
+可以遍历数组(value,index)
+
+可以对象属性(value,index,key)
+
+还可以迭代整数
+
+## 数组更新
+
+通过以下方式改变数组会触发视图更新：
+
+set(),push(),pop(),shift(),unshift(),splice(),sort(),reverse()会改变原数组
+
+filter(),concat(),slice()会返回一个新数组，不会给变原数组
+
+## 事件修饰符
+
+.stop  .prevent  .capture  .self  .once等
 
 ## Vue插件
 
@@ -106,3 +163,8 @@ beforeDestroy：实例销毁之前调用。
 在head中：被调用才执行。
 
 在body中：页面加载时被执行，通常被用来生成页面的内容。
+
+### JavaScript"=="和"==="的区别
+
+"==="表示恒等，首先比较两边的变量数据类型是否相等，其次比较两边的变量的数值是否相等；
+"=="表示相等即仅仅比较两边变量的数值是否相等。
