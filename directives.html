@@ -15,25 +15,25 @@
             <button @click="handleClose">点击隐藏</button>
         </div>
 
-        <div id="app-5">
+        <div id="app-2">
             <!-- Vue提供了特殊变量$event用以访问原生的DOM事件 -->
             <a href="first.html" @click="handleClick('禁止打开',$event)">禁止连接</a>
             <!-- event.preventDefault();可以用@click.prevent代替 -->
             <!-- 事件修饰符 .stop  .prevent  .capture  .self  .once -->
         </div>
 
-        <div id="app-2">
+        <div id="app-3">
             <!-- v-html插入HTML -->
             <span v-html="link"></span>
         </div>
 
-        <div id="app-3">
+        <div id="app-4">
             <!-- v-bind将元素中的某一属性和data中的属性双向绑定 -->
             <!-- v-bind: 可以简写为 : -->
             <a :href="url">v-bind链接</a>
         </div>
 
-        <div id="app-4">
+        <div id="app-5">
             <ul>
                 <li v-for="(book,index) in books">{{index}} - {{book.name}}</li>
             </ul>
@@ -62,8 +62,8 @@
                 }
             });
 
-            var app5 = new Vue({
-                el:'#app-5',
+            var app2 = new Vue({
+                el:'#app-2',
                 methods:{
                     handleClick:function(message,event){
                         // 该方法通知浏览器取消动作
@@ -73,22 +73,22 @@
                 }
             })
 
-            var app2 = new Vue({
-                el: '#app-2',
+            var app3 = new Vue({
+                el: '#app-3',
                 data: {
                     link: '<a href="officialTest.html">v-html插入链接</a>'
                 }
             });
 
-            var app3 = new Vue({
-                el:'#app-3',
+            var app4 = new Vue({
+                el:'#app-4',
                 data:{
                     url:'first.html'
                 }
             });
 
-            var app4 = new Vue({
-                el:'#app-4',
+            var app5 = new Vue({
+                el:'#app-5',
                 data:{
                     books:[
                         {name:'Tom'},

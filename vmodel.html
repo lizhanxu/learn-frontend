@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>《Vue.js实战》-5  v-model指令</title>
+        <!-- https://cn.vuejs.org/v2/guide/forms.html -->
+    </head>
+    <body>
+
+        <!-- 用 v-model 指令在表单 <input>、<textarea> 及 <select> 元素上创建双向数据绑定。 -->
+        <!-- 它会根据控件类型自动选取正确的方法来更新元素。 -->
+        
+        <!-- 事实上， v-model 也是一个特殊的语法糖，只不过它会在不同的表单上智能处理。 -->
+
+        <!-- v-model等价于 v-bind + v-on，来实现同步更新。  监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。 -->
+
+        <!-- v-model 会忽略所有表单元素的 value、checked、selected 特性的初始值而总是将 Vue 实例的数据作为数据来源。你应该通过 JavaScript 在组件的 data 选项中声明初始值。 -->
+        <div id="app-6">
+            <p>输入的内容是：{{message}}</p>
+            <!-- placeholder  提示信息 -->
+            <input type="text" v-model="message" placeholder="输入...">
+        </div>
+        <br>
+
+        <!-- 单选框 -->
+        <div id="app-7">
+            <p>单选框：</p>
+            <input type="radio" v-model="picked" value="html" id="html">
+            <!-- <label> 标签为 input 元素定义标注（标记）。 -->
+            <label for="html">HTML</label>
+            <br>
+            <input type="radio" v-model="picked" value="js" id="js">
+            <label for="js">JavaScript</label>
+            <br>
+            <input type="radio" v-model="picked" value="css" id="css">
+            <label for="css">CSS</label>
+            <br>
+            <p>选择的项是：{{picked}}</p>
+        </div>
+        <br>
+
+        <!-- 复选框 -->
+        <div id="app-8">
+            <p>单选项的复选框：</p>
+            <input type="checkbox" v-model="checked" id="checked">
+            <label for="checked">选择状态：{{checked}}</label>
+        </div>
+        <br>
+
+        <div id="app-9">
+            <p>多选项的复选框：</p>
+            <input type="checkbox" v-model="checked" value="html" id="html">
+            <!-- <label> 标签为 input 元素定义标注（标记）。 -->
+            <label for="html">HTML</label>
+            <br>
+            <input type="checkbox" v-model="checked" value="js" id="js">
+            <label for="js">JavaScript</label>
+            <br>
+            <input type="checkbox" v-model="checked" value="css" id="css">
+            <label for="css">CSS</label>
+            <br>
+            <p>选择的项是：{{checked}}</p>    
+        </div>
+
+        <!-- 选择列表 -->
+        <div id="app-10">
+            <p>单选列表</p>
+            <select v-model="selected">
+                <option disabled value="">请选择</option>
+                <option>HTML</option>
+                <!-- 如果含有value属性，v-model优先匹配value的值；否则匹配option的text -->
+                <!-- 此处selected匹配的值是js，而不是JavaScript -->
+                <option value="js">JavaScript</option>
+                <option>CSS</option>
+            </select>
+            <p>选择的项是：{{selected}}</p>
+        </div>
+        <br>
+
+        <div id="app-11">
+            <p>多选列表</p>
+            <!-- 给select添加multiple属性，变为多选 -->
+            <select v-model="selected" multiple>
+                <option>HTML</option>
+                <!-- 如果含有value属性，v-model优先匹配value的值；否则匹配option的text -->
+                <!-- 此处selected匹配的值是js，而不是JavaScript -->
+                <option value="js">JavaScript</option>
+                <option>CSS</option>
+            </select>
+            <p>选择的项是：{{selected}}</p>
+        </div>
+        <br>
+
+        <!-- v-model绑定的值是一个静态字符串或布尔值， 但在业务中，有时需要绑定一个动态的数据，这时可以用v-bind来实现 -->
+        <div id="app-12">
+            <p>单选框：</p>
+            <input type="radio" v-model="picked" :value="value">
+            <label >单选按钮</label>
+            <p>{{picked}}</p>
+            <p>{{value}}</p>
+            <!-- 在选中时， app12.picked === app12.value， 值都是 123。-->
+        </div>
+        <br>
+
+        <div id="app-13">
+            <p>复选框：</p>
+            <input type="checkbox"
+                   v-model="toggle"
+                   :true-value="value1"
+                   :false-value="value2">
+            <label>复选框</label>
+            <p>{{toggle}}</p>
+            <p>{{value1}}</p>
+            <p>{{value2}}</p>
+            <!-- 当选中时 app13.toggle===app13.value1 -->
+            <!-- 当选没中时 app13.toggle===app13.value2 -->
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            var app6 = new Vue({
+                el:'#app-6',
+                data:{
+                    message:''
+                }
+            });
+
+            var app7 = new Vue({
+                el:'#app-7',
+                data:{
+                    picked:''
+                }
+            });
+
+            var app8 = new Vue({
+                el:'#app-8',
+                data:{
+                    checked:false
+                }
+            });
+
+            var app9 = new Vue({
+                el:'#app-9',
+                data:{
+                    checked:['html']
+                }
+            });
+
+            var app10 = new Vue({
+                el:'#app-10',
+                data:{
+                    selected:''
+                }
+            });
+
+            var app11 = new Vue({
+                el:'#app-11',
+                data:{
+                    selected:['CSS','js']
+                }
+            });
+
+            var app12 = new Vue({
+                el:'#app-12',
+                data:{
+                    picked:false,
+                    value:123
+                }
+            });
+
+            var app13 = new Vue({
+                el:'#app-13',
+                data:{
+                    toggle:false,
+                    value1:'a',
+                    value2:'b'
+                }
+            });
+        </script>
+    </body>
+</html>

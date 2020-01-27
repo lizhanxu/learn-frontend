@@ -1,0 +1,42 @@
+[v-cloak] {
+    /* display 属性规定元素应该生成的框的类型 */
+    /* none 表示此元素不会被显示。 */
+    display: none;
+}
+
+table {
+    /* 
+    border 简写属性在一个声明设置所有的边框属性。
+    可以按顺序设置如下属性：
+    border-width      设置边框的宽度
+    border-style      设置边框的样式
+    border-color      设置边框的颜色
+    */
+    border:1px solid #e9e9e9;
+    /* 为表格设置 合并 边框模型： */
+    border-collapse: collapse;
+
+    /* 设置表格边框间隔 */
+    border-spacing: 0;
+
+    /* 不隐藏表格中空单元 */
+    empty-cells: show;
+}
+
+th,td{
+    /* 设置内边距 */
+    padding: 8px 16px;
+    border:1px solid #e9e9e9;
+    /* 设置文本对齐方式，左对齐 */
+    text-align: left;
+}
+
+th{
+    background: #f7f7f7;
+    color: #5c6b77;
+    /* 设置字体粗细 */
+    font-weight: 600;
+    /* white-space 属性设置如何处理元素内的空白。
+    nowraps 规定段落中的文本不进行换行 */
+    white-space: nowraps;
+}

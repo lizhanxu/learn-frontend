@@ -24,6 +24,7 @@
                             <td>{{item.name}}</td>
                             <td>{{item.price}}</td>
                             <td>
+                                <!-- disabled 属性规定禁用按钮。 -->
                                 <button 
                                     @click="handleReduce(index)" 
                                     :disable="item.count===1">-</button>

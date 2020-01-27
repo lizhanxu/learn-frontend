@@ -71,20 +71,39 @@ beforeDestroy：实例销毁之前调用。
 
 指令的主要职责是当其表达式的值改变时，相应将某些行为应用到DOM上。
 
-### v-bind
-
-语法糖  ：
-绑定属性
-
 ### v-on
 
 语法糖  @
 
 绑定事件
 
+### v-bind
+
+语法糖  ：
+绑定属性，双向绑定
+
 ### v-model
 
-vue提供的一个语法糖，它等价于 v-bind: + v-on，来实现同步更新。
+vue提供的一个语法糖，它等价于 v-bind + v-on，来实现同步更新。
+
+v-model绑定的值是一个静态字符串或布尔值， 但在业务中，有时需要绑定一个动态的数据，这时可以用v-bind来实现。
+
+#### v-model修饰符
+.lazy
+```
+<!-- 在“change”时而非“input”时更新 -->
+<input v-model.lazy="msg" >
+```
+
+.number
+自动将用户的输入值转为数值类型
+```
+<input v-model.number="age" type="number">
+```
+
+.trim
+自动过滤用户输入的首尾空白字符
+
 
 ### v-html
 
@@ -128,13 +147,25 @@ v-if更适合不经常改变的场景，v-show适用于频繁切换条件
 
 通过以下方式改变数组会触发视图更新：
 
-set(),push(),pop(),shift(),unshift(),splice(),sort(),reverse()会改变原数组
+set(),push(),pop(),shift(),unshift(),splice(),sort(),reverse()会改变原数组；
 
 filter(),concat(),slice()会返回一个新数组，不会给变原数组
+
+```
+例如：给books添加一项
+app.books.push({
+    ...
+});
+```
 
 ## 事件修饰符
 
 .stop  .prevent  .capture  .self  .once等
+
+```
+例如：阻止单击事件冒泡
+<a @click.stop="handle"></a>
+```
 
 ## Vue插件
 
