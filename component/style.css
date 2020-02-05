@@ -1,0 +1,5 @@
+[v-cloak] {
+    /* display 属性规定元素应该生成的框的类型 */
+    /* none 表示此元素不会被显示。 */
+    display: none;
+}
