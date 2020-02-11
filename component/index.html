@@ -48,6 +48,7 @@
 
         <!-- 组件通信 -->
         <div id="app-6">
+            <!-- 没有使用v-bind，所以“”中的内容作为字符串传递到子组件 -->
             <my-component-4 packet="来自父组件的数据"></my-component-4>
         </div>
         <br>
@@ -56,7 +57,11 @@
         <div id="app-7">
             <!-- v-model静态绑定parentMessage -->
             <input type="text" v-model="parentMessage">
+
+            <!-- 注意：不要使用v-model绑定props的数据，props应该来自父组件由父组件来更改 -->
+
             <!-- message与parentMessage动态双向绑定 -->
+            <!-- 使用了v-bind，所以“”中的内容作为变量传递到子组件。 -->
             <my-component-5 :message="parentMessage"></my-component-5>
         </div>
         <br>
@@ -69,7 +74,7 @@
 
         <!-- 自定义事件传参，子传父 -->
         <div id="app-9">
-            <p v-clock>总数：{{total}}</p>
+            <p v-cloak>总数：{{total}}</p>
             <my-component-7
                 @increase="handleGetTotal"
                 @reduce="handleGetTotal"></my-component-7>
@@ -78,7 +83,7 @@
 
         <!-- 语法糖，通过v-model完成绑定 -->
         <div id="app-10">
-            <p v-clock>总数：{{total}}</p>
+            <p v-cloak>总数：{{total}}</p>
             <my-component-8 v-model="total"></my-component-8>
         </div>
         <br>

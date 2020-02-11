@@ -6,13 +6,15 @@
     </head>
     <body>
         <div id="app-1">
-            <!-- 渲染结果为<div class="active error"></div> -->
+            <!-- 使用对象语法，渲染结果为<div class="active error"></div> -->
+            <!--  -->
             <div :class="{'active':isActive,'error':isError}"></div>
 
-            <!-- 使用计算属性，渲染结果为<div class="active error"></div>-->
+            <!-- 使用计算属性或者methods，渲染结果为<div class="active error"></div>-->
             <div :class="classes"></div>
 
             <!-- 使用数组语法，渲染结果为<div class="active error"></div> -->
+            <!-- 数组语法用的少 -->
             <div :class="[activeCls,errorCls]"></div>
 
             <!-- 前一个类名使用三目运算，渲染结果为<div class="active error"></div> -->
@@ -22,7 +24,7 @@
             <button :class="btnclasses"></button>
         </div>
 
-        <div>
+        <div id="app-2">
             <!-- 在组件中绑定class，渲染结果为<p class="article active">一些文本</p> -->
             <my-component :class="{'active':isActive}"></my-component>
         </div>

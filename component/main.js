@@ -70,7 +70,7 @@ Vue.component('my-component-5',{
 var app7 = new Vue({
     el:'#app-7',
     data:{
-        parentMessage:''
+        parentMessage:'app7'
     }
 });
 
