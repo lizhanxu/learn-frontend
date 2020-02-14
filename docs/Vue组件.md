@@ -172,3 +172,7 @@ props中写cInfo，在组件中使用时要写成c-info
 ### 作用域插槽
 
 父组件替换插槽的标签，但内容由子组件提供
+
+## Vue组件中name的作用
+
+比如keep-alive的include和exclude属性，使用name来包含或排除

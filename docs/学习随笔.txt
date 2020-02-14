@@ -14,6 +14,8 @@ snipaste截图软件
 
 标识(zhi)符
 
+Talk is cheap, Show me the code.   ——Linus
+
 Vue  
 P1-39已经看完
 
@@ -23,4 +25,11 @@ P44已经看完
 
 P45-50没有看，v-model
 
-P51-72已经看完
+P51-117已经看完
+
+P118-124没有看，tabbar案例
+
+P125-128没有看，Promise
+
+P129-130已经看完
+
