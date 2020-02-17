@@ -16,6 +16,10 @@ Vue CLI2    `vue init webpack my-project`
 
 Vue CLI3    `vue create my-project`
 
+#### 使用模板
+
+`vue init webpack my-project`  这里使用的模板是webpack
+
 ### runtime-only和runtime-compiler
 
 [P95](https://www.bilibili.com/video/av59594689?p=95)
@@ -78,9 +82,17 @@ config/index.js中将useEslint改成false
 
 放配置文件
 
+##### check-version.js
+
+检测当前的npm和node版本是不是符合package.json中定义的，如果不符合就提示wraning
+
 #### config文件夹
 
-放的配置相关文件，抽取了一些变量出来，主要是为build的配置文件服务
+放的配置相关文件，**抽取了一些变量出来**，主要是为build的配置文件服务
+
+#### node_modules文件夹
+
+存放引入的模块代码
 
 #### src文件夹
 

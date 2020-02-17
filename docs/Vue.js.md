@@ -118,6 +118,10 @@ module.exports={
 let {flag,sum} = require('./aaa.js')
 require得到一个对象
 通过{}语法，将对象解析出来
+
+导入路径是文件夹时，默认去找文件夹下的index.js,相当于把index.js省略了。
+
+对于json文件，不需要导出，可以通过例如require('../package.json')直接导入。
 ```
 
 #### ES6的Moudles
@@ -330,3 +334,29 @@ V8引擎可以直接将JS转成二进制代码，所以效率更高，V8NB。
 **作用域链：**
 
 当在函数中使用一个变量的时候,首先在本函数内部查找该变量,如果找不到则找其父级函数,最后直到window,全局变量默认挂载在window对象下
+
+### JavaScript中的&&和||
+
+在javascript中以下内容会被当成false处理：
+
+**"" , false , 0 , null , undefined , NaN**
+
+注意：字符串"false"也会被当做true处理
+
+**注意：在js中&&运算符优先级大于||**
+
+#### 两个对象的运算：
+
+**当运算到某一个变量就得出最终结果之后，就返回哪个变量。**
+
+**a || b：**
+
+如果a是true，那么b不管是true还是false，都返回true。因此不用判断b了，这个时候刚好判断到a，因此返回a。
+
+如果a是false，那么就要判断b。如果b是true，那么返回true，如果b是false，返回false。其实运算到b得出结果，不就是返回b了吗。
+
+**a && b：**
+
+如果a是false，那么b不管是true还是false，都返回false，因此不用判断b了，这个时候刚好判断到a，因此返回a。
+
+如果a是true，那么就要在判断b，和刚刚一样，**不管b是true是false**，都返回b。

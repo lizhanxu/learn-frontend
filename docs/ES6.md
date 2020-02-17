@@ -78,3 +78,27 @@ class Person{
 
 }
 ```
+
+
+
+
+
+## 对象的解构
+
+```
+const obj = {
+  name: 'lizhanxu',
+  age: 18,
+  height: 1.88
+}
+
+// 一样的，按名字而不是按位置赋值
+// const {name,height,age} = obj;
+const {name,age,height} = obj;
+
+// 上面这行代码等价于
+const name = obj.name;
+const age = obj.age;
+const height = obj.height;
+```
+

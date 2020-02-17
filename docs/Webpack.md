@@ -48,7 +48,12 @@ module.exports = {
     //publicPath并不会对生成文件的路径造成影响，主要是对页面里面引入的资源的路径url做对应的补全
   }，
   module: {
-  
+    rules: [
+      {
+        test: /\.css$/,
+        use:['css-loader']
+      }
+    ]
   },
   resolve: {
     alias: {
@@ -197,11 +202,29 @@ plugins: [
 
 将打包的js文件，自动通过script标签插入到body中
 
+#### CopyWebpackPlugin
+
+复制文件或文件夹到dist文件夹下
+
+#### friendly-errors-webpack-plugin
+
+友好错误提示插件，对错误提示进行优化。
+
+#### ExtractTextPlugin
+
+从打包好的文件中抽出部分内容形成单独的文件。
+
+比如将css单独抽离出来，使打包后的内容更合理，不混乱。
+
 #### uglifyJsPlugin
 
 压缩(丑化)JS的plugin
 
 开发阶段不要用这个插件
+
+#### optimize-css-assets-webpack-plugin
+
+A Webpack plugin to optimize \ minimize CSS assets.
 
 #### webpack-dev-server
 
@@ -224,7 +247,13 @@ devServer: {
 
 webpack-dev-server 
 
---open 自动打开网页
+--open  自动打开网页
+
+--inline   热更新
+
+--progress    显示进度条
+
+--config   指定配置文件
 
 ### 开发和生产配置分离
 
