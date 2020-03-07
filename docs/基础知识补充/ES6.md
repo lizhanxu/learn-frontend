@@ -102,3 +102,5 @@ const age = obj.age;
 const height = obj.height;
 ```
 
+数组也可以解构，但很少用
+

@@ -16,6 +16,8 @@ snipaste截图软件
 
 Talk is cheap, Show me the code.   ——Linus
 
+http://httpbin.org    可以用这个网站来进行网络请求的模拟
+
 Vue  
 P1-39已经看完
 
@@ -29,11 +31,8 @@ P51-117已经看完
 
 P118-124没有看，tabbar案例
 
-P125-128没有看，Promise
+P125-141已经看完
 
-P129-141已经看完
-
-P142-146没有看，axios
+P142-146已经看完，axios
 
 P147-151已经看完
-

@@ -64,9 +64,9 @@ Vue 实例暴露了一些有用的实例属性与方法。它们都有前缀 `$`
 
 Model-View-ViewModel
 
-![MVVM](/docs/MVVM.png)
+![MVVM](/MVVM.png)
 
-![MVVM各层解释](/docs/MVVM解释.png)
+![MVVM各层解释](/MVVM解释.png)
 
 Model用纯粹的JavaScript对象表示，View负责显示。
 
@@ -117,9 +117,9 @@ module.exports={
 ```
 let {flag,sum} = require('./aaa.js')
 require得到一个对象
-通过{}语法，将对象解析出来
+通过{}语法，将对象解析出来，对象的解构
 
-导入路径是文件夹时，默认去找文件夹下的index.js,相当于把index.js省略了。
+导入路径是文件夹时，默认去找文件夹下的index.js,相当于把index.js省略了。如果在package.json中指定了main参数，则默认去文件夹下找main参数指定的js文件。
 
 对于json文件，不需要导出，可以通过例如require('../package.json')直接导入。
 ```
@@ -242,7 +242,7 @@ splice(2,0,'F')，在第2个位置后面插入'F'。
 
 ## Vue实例中的template
 
-Vue实例中的template中的template最终会完全替换，Vue实例通过el绑定的html元素。
+Vue实例通过el绑定的html元素，最终会将Vue实例中的template完全替换。
 
 ## render函数
 
@@ -264,7 +264,15 @@ createElement是一个函数，第一个参数必选，可以是一个 HTML 标�
 
 前端路由管理插件
 
-## 注意
+### vue-particles
+
+vue实现的粒子特效
+
+* color：设置粒子和线的颜色
+
+* `:particlesNumber`设置粒子的密度
+
+## 知识补充
 
 不要在选项属性或回调上使用箭头函数(娜姆大表达式)。
 
@@ -274,28 +282,6 @@ createElement是一个函数，第一个参数必选，可以是一个 HTML 标�
 
 只要入参不变computed会缓存计算结果，而methods在每次渲染时都要重新计算
 
-### JavaScript在head和body中的区别
-
-在head中：被调用才执行。
-
-在body中：页面加载时被执行，通常被用来生成页面的内容。
-
-### JavaScript"=="和"==="的区别
-
-"==="表示恒等，首先比较两边的变量数据类型是否相等，其次比较两边的变量的数值是否相等；
-"=="表示相等即仅仅比较两边变量的数值是否相等。
-
-### 方法与函数的区别
-
-* 方法：method
-* 函数：function
-
-方法通常和某个类或实例挂钩。
-
-Java里面只有方法，没有函数，含后面引入了函数式接口。因为不能脱离类。
-
-JavaScript里面既有方法也有函数。
-
 ### 如何取得input中的值？
 
 `$event.target.value`
@@ -304,59 +290,7 @@ JavaScript里面既有方法也有函数。
 
 Vue全家桶是指vueCore+vue-router+vuex
 
-### JS字节码
 
-JS类似Java中间也会生成字节码,再交给浏览器
 
-V8引擎可以直接将JS转成二进制代码，所以效率更高，V8NB。
 
-### 箭头函数的this和普通函数function的this
 
-箭头函数没有自己的this值，它的this是从里往外找，直到找到this的定义。
-
-* 普通函数：根据调用我的人（谁调用我，我的this就指向谁）
-
-* 箭头函数：根据所在的环境（我在哪个环境中，this就指向谁）
-
-**普通函数中的this:**
-
-1. this总是代表它的直接调用者
-
-2. 在默认情况(非严格模式下,未使用 'use strict'),没找到直接调用者,则this指的是 window
-3. 在严格模式下,没有直接调用者的函数中的this是 undefined
-4. 使用call,apply,bind(ES5新增)绑定的,this指的是 绑定的对象
-
-**箭头函数中的this：**
-
-1. 箭头函数没有自己的this, 它的this是继承而来;
-2. 默认指向在定义它时所处的对象(宿主对象),而不是执行时的对象
-
-**作用域链：**
-
-当在函数中使用一个变量的时候,首先在本函数内部查找该变量,如果找不到则找其父级函数,最后直到window,全局变量默认挂载在window对象下
-
-### JavaScript中的&&和||
-
-在javascript中以下内容会被当成false处理：
-
-**"" , false , 0 , null , undefined , NaN**
-
-注意：字符串"false"也会被当做true处理
-
-**注意：在js中&&运算符优先级大于||**
-
-#### 两个对象的运算：
-
-**当运算到某一个变量就得出最终结果之后，就返回哪个变量。**
-
-**a || b：**
-
-如果a是true，那么b不管是true还是false，都返回true。因此不用判断b了，这个时候刚好判断到a，因此返回a。
-
-如果a是false，那么就要判断b。如果b是true，那么返回true，如果b是false，返回false。其实运算到b得出结果，不就是返回b了吗。
-
-**a && b：**
-
-如果a是false，那么b不管是true还是false，都返回false，因此不用判断b了，这个时候刚好判断到a，因此返回a。
-
-如果a是true，那么就要在判断b，和刚刚一样，**不管b是true是false**，都返回b。

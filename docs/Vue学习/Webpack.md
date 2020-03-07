@@ -79,6 +79,9 @@ module.exports = {
 对node环境依赖的一些相关信息
 
 ```
+main参数的作用
+require导入路径是文件夹时，默认去找文件夹下的index.js,相当于把index.js省略了。如果在package.json中指定了main参数，则默认去文件夹下找main参数指定的js文件。
+
 package.json中scripts的命令，可以使用全局模块的，也可以使用局部(本地)模块的,优先使用局部(本地)模块。
 在终端中只有全局模块配置在系统的环境变量中，能直接找到。
 

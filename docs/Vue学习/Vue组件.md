@@ -11,8 +11,6 @@ props 传递数据、events 触发事件和slot内容分发就构成了 Vue组�
 
 注意：JavaScript对象是引用关系。
 
-props传递数据、events 触发事件和slot内容分发就构成了Vue 组件的3个API来源，再复 杂的组件也是由这3部分构成的。
-
 ### 组件的使用步骤
 
 * 创建组件构造器

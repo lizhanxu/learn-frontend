@@ -298,15 +298,15 @@ data(){
       component: Home,
       children: [
         { //配置默认显示
-          path:'/'   // 也可以是 ''
+          path:'/'   //   也可以是 ''
           redirect:'news'  //重定向
         },
         {
-          path:'news',     //子路由不需要加 /
+          path:'news',     //   子路由不需要加 /
           component: HomeNews
         },
         {
-          path:'message',     //子路由不需要加 /
+          path:'message',     //    子路由不需要加 /
           component: HomeMessage
         }
       ]
@@ -316,10 +316,10 @@ data(){
 
   
 
-* 在组件内部使用`<router-view>`标签
+* 在 **上一级路由的组件内部** 使用`<router-view>`标签
 
   ```
-  在Home.vue中使用
+  //  在Home.vue中使用
   <div>
     <router-link to="/home/news">新闻</router-link>
     <router-link to="/home/message">消息</router-link>
@@ -352,11 +352,9 @@ data(){
   ```
   <router-link :to="{path : '/profile',query : {id = '123456',name : 'lizhanxu',age : 18,}}">档案</router-link>
   
-  ```
+  通过&route.query获得query对象
 
-通过&route.query获得query对象
-
-  点击事件写法：
+点击事件写法：
   profileClick(){
     this.&router.push({
       path: '/profile',
@@ -368,7 +366,6 @@ data(){
     })
   }
   ```
-  
 
 #### &router和&route
 
@@ -427,7 +424,7 @@ router.beforeEach((to,from,next) => {
 router.afterEach((to,from) => {
 
 })
-```
+  ```
 
 ##### 路由独享的守卫
 
@@ -477,6 +474,8 @@ router-view也是一个组件，如果直接被包在keep-alive里面，所有�
 
 **activated  /  deactivated**
 
+和created、destroyed钩子同级
+
 在deactivated( )中使用this.$route获得的route是改变之后的route
 
 ##### keep-alive的属性
@@ -494,4 +493,3 @@ Profile  -->  我的；配置文件；个人档案
 meta：元数据，描述数据的数据
 
 回调很多时候也叫钩子(hook)
-```
