@@ -290,7 +290,9 @@ vue实现的粒子特效
 
 Vue全家桶是指vueCore+vue-router+vuex
 
+### 网络请求的时机
 
+一般在created中进行网络请求。
 
 
 
