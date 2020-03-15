@@ -1,5 +1,35 @@
 # JavaScript
 
+## 了解JavaScript
+
+函数优先，函数第一公民。解释型语言，基于原型
+
+，多范式，动态脚本语言。
+
+### 编程范式
+
+指面向过程、面向对象、函数式、泛型编程等。
+
+泛型为程语言提供了更高层级的抽象，即参数化类型。
+
+### 静态语言
+
+强类型语言，强制数据类型
+
+在编译时变量的数据类型即可确定的语言，要求在使用变量之前必须声明数据类型
+
+### 动态语言
+
+弱类型语言，与强类相反，数据类型可以被忽略。
+
+在运行时确定数据类型的语言，变量使用之前不需要类型声明，通常变量的类型是被赋值的那个值的类型。 
+
+## 继承与原型链
+
+JavaScript在ES6中引入`class`关键字，但这知识**语法糖**，JavaScript仍然是基于原型的。
+
+
+
 ## `Object.defineProperty()`
 
 > 在一个对象上定义一个新属性，或者修改一个已经存在的属性，并返回这个对象
@@ -261,3 +291,14 @@ person.firstname
 person["firstname"]
 ```
 
+## Node和Element对象的区别
+
+Node是被各种DOM API继承的接口。
+
+Element、Text(文本)、Comment(注释)都是继承于Node，分别叫做ELEMENT_NODE,TEXT_NODE,COMMENT_NODE。
+
+平常使用的html上的元素，即Element是类型为ELEMENT_NODE的Node。
+
+[Node.nodeType](https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType)返回一个整数，表示该节点的类型。
+
+![1584022226810](DOM.png)

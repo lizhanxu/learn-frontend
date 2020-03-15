@@ -225,20 +225,52 @@ splice(2,0,'F')，在第2个位置后面插入'F'。
 
 .stop  .prevent  .capture  .self  .once等
 
-```
-.stop：阻止单击事件冒泡
-<a @click.stop="handle"></a>
+### .stop
 
-.prevent：阻止默认事件
+> 阻止单击事件冒泡
 
-.once:只触发一次回调
+`<a @click.stop="handle"></a>`
 
-.监听键盘事件
-如：监听enter键
-<input type = "text" @keyup.enter="keyup">
+### .prevent
 
-.native:监听组件根元素的原生事件
-```
+> 阻止默认事件
+
+`<div @keydown.enter.prevent=""/>`
+
+阻止了按下enter键的换行
+
+### .once
+
+> 只触发一次回调
+
+### .native
+
+>监听组件根元素的原生事件
+
+## 按键修饰符
+
+例如：监听enter键
+`<input type = "text" @keyup.enter="keyup">`
+
+### 按键码
+
+为了在必要的情况下支持旧浏览器，Vue 提供了绝大多数常用的按键码的别名
+
+如：ctrl的keycode是17
+
+`@keyup.17="  "`
+
+### 系统修饰键
+
+实现仅在按下相应按键时才触发鼠标或键盘事件的监听器。
+
+#### **注意**：
+
+请注意修饰键与常规按键不同，在和 `keyup` 事件一起用时，事件触发时修饰键必须处于按下状态。换句话说，只有在按住 `ctrl` 的情况下释放其它按键，才能触发 `keyup.ctrl`。
+
+**而单单释放 `ctrl` 也不会触发事件**。
+
+如果你想要这样的行为，请为 `ctrl` 换用 `keyCode`：`keyup.17`。
 
 ## Vue实例中的template
 
