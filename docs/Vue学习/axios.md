@@ -197,15 +197,12 @@ request({
 //  最终方案
 //  axios()方法本身返回的就是Promise
 export function request(config){
-  return new Promise((resolve,reject) => {
-    const instance = axios.create({
-      baseURL:'',
-      timeout:5000
-    })
-    
-    // 发送真正的网络请求
-    return instance(config)
+  const instance = axios.create({
+    baseURL:'',
+    timeout:5000
   })
+  // 发送真正的网络请求
+  return instance(config)
 }
 ```
 
@@ -235,7 +232,7 @@ export function request(config){
       
     })
     
-    instance.interceptors.response.usr(res => {
+    instance.interceptors.response.use(res => {
       console.log(res);
       
       return res.data
