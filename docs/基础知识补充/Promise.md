@@ -97,6 +97,14 @@ Promise.all([
 })
 ```
 
+## async`/`await
+
+`async`/`await`的目的是简化使用多个 promise 时的同步行为，并对一组 `Promises`执行某些操作。正如`Promises`类似于结构化回调，`async`/`await`更像结合了generators和 promises。
+
+大多数异步函数也可以使用Promises编写。但是，在错误处理方面，`async`函数更容易捕获异常错误
+
+`async function` 的返回值将被隐式地传递给 `Promise.resolve`。
+
 ### 备注
 
 `catch(failureCallback)` 是 `then(null, failureCallback)` 的缩略形式。
