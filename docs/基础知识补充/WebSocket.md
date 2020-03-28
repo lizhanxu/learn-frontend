@@ -1,5 +1,11 @@
 # WebSocket
 
+## constructor
+
+```
+var aWebSocket = new WebSocket(url [, protocols]);
+```
+
 ## 常量
 
 | **Constant**           | **Value** |
@@ -96,3 +102,7 @@ Multipurpose Internet Mail Extensions
 通用结构：type/subtype
 
 对大小写不敏感，但是传统写法都是小写
+
+### WS和WSS
+
+WS协议和WSS协议两个均是WebSocket协议的SCHEM，两者一个是非安全的，一个是安全的。也是统一的资源标志符。就好比HTTP协议和HTTPS协议的差别。非安全的没有证书，安全的需要SSL证书。

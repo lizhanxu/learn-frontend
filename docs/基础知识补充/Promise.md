@@ -97,3 +97,6 @@ Promise.all([
 })
 ```
 
+### 备注
+
+`catch(failureCallback)` 是 `then(null, failureCallback)` 的缩略形式。

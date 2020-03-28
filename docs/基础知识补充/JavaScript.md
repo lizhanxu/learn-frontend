@@ -212,11 +212,57 @@ Java里面只有方法，没有函数，但后面引入了函数式接口。因�
 
 JavaScript里面既有方法也有函数。
 
-## 闭包
+## 闭包/立即执行函数表达式
 
-叹号后面跟函数!function
-和加号后面跟函数+function
-都是跟`(function(){})();`这个函数是一个意思，都是告诉浏览器**自动运行**这个匿名函数的，因为!+()这些符号的运算符是最高的，所以会先运行它们后面的函数
+```
+// 方式一
+// 执行完后会立即销毁
+(function() {
+  console.log("函数被立即调用")
+})()
+```
+
+```
+// 方式二
+(function() {
+  console.log("函数被立即调用")
+}())
+```
+
+```
+// 方式三
+// 匿名函数表达式
+// 将立即执行函数赋值给一个变量，是赋值的函数的返回值，没有返回值则是undefined
+var demo = function() {
+  console.log("demo函数被调用")
+}()
+// 输出undefined
+console.log(demo)
+
+// 可以不赋值，即
+function() {
+  console.log("demo函数被调用")
+}()
+```
+
+### 提高立即执行函数表达式的优先级
+
+！ + - || 等一元操作符有更高的优先级，会被浏览器优先执行
+
+```
+!function(){}();
++function(){}();
+```
+
+### 为什么闭包前要添加分号
+
+在多个js文件拼接时，为了防止产生歧义，使用分号作为分隔符
+
+```
+;(function() {
+  console.log("函数被立即调用")
+}());
+```
 
 ## JS字节码
 
@@ -271,6 +317,8 @@ console.log(a)
 
 ```
 var log = console.log.bind(console);
+
+// 同样的可以重写info和error
 ```
 
 ## jQuery的extend方法
@@ -302,3 +350,17 @@ Element、Text(文本)、Comment(注释)都是继承于Node，分别叫做ELEMEN
 [Node.nodeType](https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType)返回一个整数，表示该节点的类型。
 
 ![1584022226810](DOM.png)
+
+## arguments对象
+
+**arguments** 是一个对应于传递给函数的参数的类数组对象。
+
+`arguments`对象是所有（非箭头）函数中都可用的**局部变量**。可以使用`arguments`对象在函数中引用函数的参数。
+
+如果调用的参数多于正式声明接受的参数，则可以使用`arguments`对象。这种技术对于可以传递**可变数量的参数**的函数很有用。使用 `arguments.length`来确定传递给函数参数的个数，然后使用`arguments`对象来处理每个参数。
+
+要确定函数签名中（输入）参数的数量，请使用`Function.length`属性。
+
+## class
+
+不能在类的实例上调用静态方法，而应该通过类本身调用。
