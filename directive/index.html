@@ -35,7 +35,7 @@
 
         <div id="app-5">
             <ul>
-                <li v-for="(book,index) in books">{{index}} - {{book.name}}</li>
+                <li v-for="(book,index) in books" @click="showBook(book,index)">{{index}} - {{book.name}}</li>
             </ul>
         </div>
 

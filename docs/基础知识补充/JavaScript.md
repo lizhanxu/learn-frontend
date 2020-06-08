@@ -364,3 +364,39 @@ Element、Text(文本)、Comment(注释)都是继承于Node，分别叫做ELEMEN
 ## class
 
 不能在类的实例上调用静态方法，而应该通过类本身调用。
+
+## Map
+
+![1586543038440](Map.png)
+
+```
+Map  通过JSON.stringify，再JSON.parse，得到的是数组而非Map
+要通过  new Map(数组)来转成Map
+```
+
+## 区分对象和数组
+
+```
+Object.prototype.toString.call({key:2}) == '[object Array]'
+
+Object.prototype.toString.call({key:2}) == '[object Object]'
+```
+
+## 函数参数传递
+
+```
+js的函数参数传递为值传递。
+```
+
+## JS中false
+
+```
+undefined,null,0,NaN,"",'',false都认为是布尔值的false
+
+"false",[],{}都认为是布尔值的true
+```
+
+
+
+
+

@@ -52,5 +52,10 @@ var app5 = new Vue({
             {name:'Jhon'},
             {name:'Lee'}
         ]
+    },
+    methods:{
+      showBook(book,index){
+        console.log(book.name+'---'+index)
+      }
     }
 });

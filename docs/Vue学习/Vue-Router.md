@@ -353,7 +353,8 @@ data(){
   <router-link :to="{path : '/profile',query : {id = '123456',name : 'lizhanxu',age : 18,}}">档案</router-link>
   
   通过&route.query获得query对象
-
+  ```
+  ```
 点击事件写法：
   profileClick(){
     this.&router.push({
@@ -365,6 +366,7 @@ data(){
       }
     })
   }
+
   ```
 
 #### &router和&route
@@ -428,7 +430,7 @@ router.afterEach((to,from) => {
 
 ##### 路由独享的守卫
 
-```
+  ```
 {
   path:'/home',
   component:Home,
@@ -436,7 +438,7 @@ router.afterEach((to,from) => {
 
   }
 }
-```
+  ```
 
 ##### 组件内的守卫
 
@@ -493,3 +495,7 @@ Profile  -->  我的；配置文件；个人档案
 meta：元数据，描述数据的数据
 
 回调很多时候也叫钩子(hook)
+
+```
+
+```
