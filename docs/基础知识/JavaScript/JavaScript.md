@@ -367,7 +367,7 @@ Element、Text(文本)、Comment(注释)都是继承于Node，分别叫做ELEMEN
 
 ## Map
 
-![1586543038440](Map.png)
+![1586543038440](JavaScript.assets/Map.png)
 
 ```
 Map  通过JSON.stringify，再JSON.parse，得到的是数组而非Map

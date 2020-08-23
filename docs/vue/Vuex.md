@@ -75,7 +75,7 @@ new Vue({
 
 ### Vuex的思想
 
-![](vuex.png)
+![vuex](Vuex.assets/vuex.png)
 
 官方不建议通过`&store.state`来直接操作state，因为这样很难**跟踪**到底是谁改了这个状态，**不便于调试**。
 

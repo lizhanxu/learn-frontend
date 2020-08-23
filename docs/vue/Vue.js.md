@@ -64,9 +64,9 @@ Vue 实例暴露了一些有用的实例属性与方法。它们都有前缀 `$`
 
 Model-View-ViewModel
 
-![MVVM](/MVVM.png)
+![MVVM](/Vue.js.assets/MVVM.png)
 
-![MVVM各层解释](/MVVM解释.png)
+![MVVM各层解释](Vue.js.assets/MVVM解释-1598194875254.png)
 
 Model用纯粹的JavaScript对象表示，View负责显示。
 
