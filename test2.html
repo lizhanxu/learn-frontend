@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        // 函数传参引用类型，传递的值是一个引用，修改这个引用指向的对象，会修改原对象
+        let a = {
+            value:"hello"
+        }
+        function foo(b){
+            b.value = "world";
+            return b;
+        }
+
+        console.log(foo(a).value)
+        console.log(a.value);
+    </script>
+</body>
+</html>

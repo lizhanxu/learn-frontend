@@ -326,5 +326,10 @@ Vue全家桶是指vueCore+vue-router+vuex
 
 一般在created中进行网络请求。
 
+#### 网络请求在created和mounted的区别
 
+前者页面视图未出现，如果请求信息过多，页面会长时间处于白屏状态。
 
+### 技巧
+
+![image-20200821032845683](Vue.js.assets/image-20200821032845683.png)

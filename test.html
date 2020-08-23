@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let array = [
+            {
+                avatar: null,
+                c: "222",
+                chatid: 25133,
+                ct: 1,
+                id: 19,
+                mid: "363351",
+                mine: 1,
+                nick: null,
+                owner: 25135,
+                reEditStatu: 1,
+                readflag: 2,
+                readflag2: 2,
+                readtime: null,
+                sendbysys: 1,
+                t: "1594829974151",
+                touid: 25133,
+                uid: 25135
+            },
+            {
+                avatar: null,
+                c: "222",
+                chatid: 25133,
+                ct: 1,
+                id: 129,
+                mid: "363351",
+                mine: 1,
+                nick: null,
+                owner: 25135,
+                reEditStatu: 1,
+                readflag: 2,
+                readflag2: 2,
+                readtime: null,
+                sendbysys: 1,
+                t: "1594829974151",
+                touid: 25133,
+                uid: 25135
+            },
+            {
+                avatar: null,
+                c: "222",
+                chatid: 25133,
+                ct: 1,
+                id: 139,
+                mid: "363351",
+                mine: 1,
+                nick: null,
+                owner: 25135,
+                reEditStatu: 1,
+                readflag: 2,
+                readflag2: 2,
+                readtime: null,
+                sendbysys: 1,
+                t: "1594829974151",
+                touid: 25133,
+                uid: 25135
+            }
+        ]
+
+
+        // 修改 filter，map 的callback中当前数组元素，会使原数组改变
+        console.log(array[0].c + " world");
+        let temp; // 不能通过这种方式去拿到当前数组元素的引用，修改它，会改变原数组
+        let index;
+        let newArray = array.map((msg, i) => {
+            if(msg.id === 19){
+                // msg.c = "hello"
+
+                temp = msg;
+                index = i;
+            }
+            return msg;
+        })
+        console.log(newArray[0].c)
+        console.log(array[0].c + " world");
+        console.log(temp.c)
+        console.log(index);
+        temp.c = "new world";
+        console.log(temp.c)
+        console.log(array[0].c + " world");
+        console.log(newArray[0].c)
+
+        
+        // let t = array[1]; // 
+        // t.c = "hello"
+        // console.log(array[1].c); // hello   拿到的是引用,会改变原数组
+
+
+        // let val = {
+        //     a:1,
+        //     b:2
+        // }
+        // let val2 = val;
+        // val2.a = 100;
+        // console.log(val.a); // 100 拿到的是引用,会改变原对象
+    </script>
+</body>
+
+</html>

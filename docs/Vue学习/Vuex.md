@@ -347,8 +347,13 @@ updateName(){
 
 抽出js文件，再通过`export default {}`导出。
 
+### 规范
+
+复杂的方法(即使不是异步操作)放到actions中，mutations中做单一的事。
+
 ### 备注
 
-backend：后端
+* backend：后端
 
-frontend：前端
+* frontend：前端
+* 
