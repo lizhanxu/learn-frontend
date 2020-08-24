@@ -88,6 +88,18 @@ created：一个Vue实例被创建之后调用。注意，此时尚未挂载。
 
 mounted：el挂载到实例上之后调用。注意，一般业务逻辑从这里开始。
 
+* **`mounted` 不会承诺所有的子组件也都一起被挂载**。如果你希望等到整个视图都渲染完毕，可以用 `vm.$nextTick` 替换掉 `mounted`：
+
+  ```js
+  mounted: function () {
+  this.$nextTick(function () {
+  
+  // Code that will run only after the
+  // entire view has been rendered
+  })
+  }
+  ```
+
 updated：界面更新之后回调
 
 beforeDestroy：实例销毁之前调用。
