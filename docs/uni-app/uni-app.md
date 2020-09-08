@@ -478,6 +478,10 @@ radio 用 radio-group 组件进行代替
 
 App端（vue页面V3编译模式）和H5端支持v-html，其他端不支持v-html。
 
+### v-for
+
+> 注意事项: 不能使用 index 作为 key 的唯一标识
+
 ### 不支持
 
 * **uni-app只支持vue单文件组件（.vue 组件）**。
