@@ -356,4 +356,7 @@ updateName(){
 * backend：后端
 
 * frontend：前端
-* 
+
+* 为什么vuex中要通过mutations修改state，而不是直接修改state？
+
+  因为state是实时更新的，mutations无法进行异步操作，而如果直接修改state的话是能够异步操作的，当你异步对state进行操作时，还没执行完，这时候如果state已经在其他地方被修改了，这样就会导致程序存在问题了。所以state要同步操作，通过mutations的方式限制了不允许异步。

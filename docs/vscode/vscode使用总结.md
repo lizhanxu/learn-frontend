@@ -1,3 +1,5 @@
+# VSCode
+
 ## 快捷键
 
 | 快捷键                 | 说明                                   |
@@ -48,13 +50,54 @@
 
 ## 插件
 
-Chinese
+Chinese (中文支持)
 
-open in browser
+Auto Close Tag (自动闭合HTML/XML标签)
 
-npm
+Auto Rename Tag (自动完成另一侧标签的同步修改)
 
-npm Intellisense
+Beautify (格式化 html ,js,css)
+
+Bracket Pair Colorizer(给括号加上不同的颜色，便于区分不同的区块)
+
+Debugger for Chrome(映射vscode上的断点到chrome上，方便调试)
+
+ESLint(js语法纠错，可以自定义配置)
+
+GitLens(方便查看git日志)
+
+HTML CSS Support (智能提示CSS类名以及id)
+
+HTML Snippets(智能提示HTML标签，以及标签含义)
+
+jQuery Code Snippets(jQuery代码智能提示)
+
+Markdown Preview Enhanced(实时预览markdown)
+
+Markdown All in One
+
+markdownlint(markdown语法纠错)
+
+Material Icon Theme(vscode图标主题)
+
+open in browser(右键快速在浏览器中打开html文件)
+
+Path Intellisense(自动提示文件路径)
+
+Vetur(Vue多功能集成插件，错误提示等)
+
+* ![image-20200813234517535](vscode使用总结.assets/image-20200813234517535.png)
+
+* ```
+  //vetur格式化时初始化script缩进
+  //vetur格式化时初始化style缩进
+  ```
+
+npm Intellisense(require 时的包提示)
+
+Lombok Annotations Support for VS Code. (简化POJO， 很惊喜)
+
+
 
 Atom One Dark Theme
 
@@ -62,26 +105,9 @@ One Dark Pro
 
 Live Server
 
-Debugger for Chrome
-
-Markdown Preview Enhanced
-
-Vetur 
-
-![image-20200813234517535](vscode使用总结.assets/image-20200813234517535.png)
-
-```
-//vetur格式化时初始化script缩进
-//vetur格式化时初始化style缩进
-```
-
 vscode-icons
 
-Gitlens
-
 Git History
-
-Bracket Pair Colorizer
 
 TODO Highlight
 
@@ -92,10 +118,6 @@ javascript console utils
 Code Spell Checker
 
 Local History
-
-Auto Close Tag
-
-Auto Rename Tag
 
 Better Comments
 
@@ -246,6 +268,12 @@ vscode支持Emmet语法
 
 日常开发中，建议用可以用 Prettier 做代码格式化，然后用 eslint 做校验。
 
-
-
 jsconfig.json 该`exclude`属性可以通过指定不属于源代码的文件夹来提高IntelliSense的性能。
+
+### 解决VSCode对于java某些API的Access restriction造成的警告
+
+在`项目目录/.settings/org.eclipse.jdt.core.prefs`中添加`org.eclipse.jdt.core.compiler.problem.forbiddenReference=ignore` 
+
+来忽略此类警告
+
+[该解决方法来自github](https://github.com/redhat-developer/vscode-java/issues/120)

@@ -6,6 +6,18 @@
 
 ，多范式，动态脚本语言。
 
+Javascript语言的执行环境是"单线程"
+
+具体流程如下：
+
+（1）所有同步任务都在主线程上执行，形成一个执行栈（execution context stack）。
+
+（2）主线程之外，还存在一个"任务队列"（task queue）。只要异步任务有了运行结果，就在"任务队列"之中放置一个事件。
+
+（3）一旦"执行栈"中的所有同步任务执行完毕，系统就会读取"任务队列"，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。
+
+主线程不断重复上面的第三步，实现js运行过程。
+
 ### 编程范式
 
 指面向过程、面向对象、函数式、泛型编程等。
@@ -423,4 +435,22 @@ slice()
 ```
 
 
+
+## buffer转换
+
+Node buffer和web buffer 可以通过Uint8Array转换
+
+## ES6中import和export
+
+Person.js
+
+```
+console.log("1111");
+function Person(){};
+export default new Person();
+```
+
+通过这种方式export的对象，多处import为同一个对象
+
+多次import，js文件里的内容只会执行一次
 
