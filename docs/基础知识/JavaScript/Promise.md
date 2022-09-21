@@ -1,10 +1,42 @@
-## Promise
+# Promise(期约)
 
 > Promise是异步编程的一种解决方案
 >
-> 优雅
+> 期约是对尚不存在结果的一个替身
 
-reject可以不传
+## 期约基础
+
+### 创建期约
+
+```
+new Promise(executor)
+创建新期约时需要传入执行器（executor）函数作为参数
+```
+
+### 期约状态机
+
+- Pending，待定，期约的初始状态
+- Fulfilled，resolve( )，兑现，解决
+- Rejected，reject( ) ，拒绝
+
+> 在待定状态下，期约可以落定为fuilfilled或者rejected状态，无论落定为哪种状态都是不可逆的
+>
+> 不能保证期约必定会脱离待定状态
+>
+> 通过resolve( )和reject( )控制期约状态的切换
+
+```js
+无论resolve()和reject()哪一个被调用，状态转换都不可撤销，继续修改状态会静默失败
+let p = Promise((resolve,reject)=>{
+    resolve()
+    reject() // 没有效果
+})
+
+Promise.resolve() // 实例化一个解决的期约
+等同于 new Promise((resolve,reject)=>{resolve()})
+
+Promise.reject() // 实例化一个拒绝的期约并抛出一个异步错误，这个错误不能通过try/catch捕获
+```
 
 ### Promise的使用
 
@@ -47,12 +79,6 @@ new Promise((resolve,reject) => {
 >
 > 在执行传入的回调函数时，会传入两个参数：resolve、reject，这两个参数也是函数。
 
-### Promise三种状态
-
-* Pending，等待状态
-* Fulfilled，resolve( )
-* Rejected，reject( ) 
-
 ### 链式调用中的简写
 
 then和catch都可以return一个Promise对象，从而进行链式编程。
@@ -63,7 +89,7 @@ return new Promsie(resolve => {
 })
 // 可以简写为如下，内部会进行Promise包装
 return Promise.resolve(res+'111')
-// 可以更加简写为如下，内部会进行Promise包装
+// async方法中 可以更加简写为如下，内部会进行Promise包装
 return res+'111'
 
 
@@ -72,7 +98,7 @@ return new Promise((resolve,reject) => {
 })
 // 可以简写为如下，内部会进行Promise包装
 return Promise.reject('error message')
-// 可以更加简写为如下，内部会进行Promise包装
+// async方法中 可以更加简写为如下，内部会进行Promise包装
 throw 'error message'
 ```
 

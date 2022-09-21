@@ -1,28 +1,55 @@
-## npm模块
+# npm模块
 
-### portfinder
+## ncu
+
+```
+npm install -g npm-check-updates
+
+检查依赖
+ncu
+
+检查全局依赖
+ncu -g
+
+更新package.json
+ncu -u
+```
+
+## npx
+
+npm内置
+
+调用项目内部安装的模块
+
+```
+./node_modules/.bin/eslint --init
+等同于
+npx eslint --init
+```
+
+## portfinder
 
 自动获取当前可用的port。
 
-### ora
+## ora
 
 实现node.js 命令行环境的 loading效果，和显示各种状态的图标等
 
-### rimraf
+## rimraf
 
 以包的形式包装`rm -rf`命令，就是用来删除文件和文件夹的，不管文件夹是否为空，都可以删除。
 
-### del
+## del
 
 Similar to rimraf, but with a Promise API and support for multiple files and globbing. It also protects you against deleting the current working directory and above.
 
 del和rimraf类似，但是使用的是Promise API
 
-### chalk
+## chalk
 
 一个颜色插件，为了输出不再单调，添加文字背景，改变字体颜色等。
 
-### semver
+## semver
 
 [Semantic Version](https://link.jianshu.com/?t=http://semver.org/)是当下被大多数软件/库使用的一套版本命名规范。
 
@@ -36,34 +63,34 @@ del和rimraf类似，但是使用的是Promise API
 - 分析版本号是否属于某个范围或符合一系列条件
 - 等等...
 
-### shelljs
+## shelljs
 
 该模块用来执行shell命令。
 
-### cross-env
+## cross-env
 
 Run scripts that set and use environment variables across platforms
 
-### cfonts
+## cfonts
 
 This is a silly little command line tool for sexy fonts in the console.
 
-### webpack-hot-middleware
+## webpack-hot-middleware
 
 Webpack hot reloading using only [webpack-dev-middleware](https://webpack.js.org/guides/development/#webpack-dev-middleware). This allows you to add hot reloading into an existing server without [webpack-dev-server](https://webpack.js.org/configuration/dev-server/).
 
 This module is **only** concerned with the mechanisms to connect a browser client to a webpack server & receive updates.
 
-### vue-electron
+## vue-electron
 
  将 electron API 附加到 Vue 对象
 
-### [WebStorageCache](https://www.npmjs.com/package/web-storage-cache)
+## [WebStorageCache](https://www.npmjs.com/package/web-storage-cache)
 
 `WebStorageCache` 对HTML5 `localStorage` `和sessionStorage` 进行了扩展，添加了超时时间，序列化方法。可以直接存储json对象，同时可以非常简单的进行超时时间的设置。
 **优化**：`WebStorageCache`自动清除访问的过期数据，避免了过期数据的累积。另外也提供了清除全部过期数据的方法：`wsCache.deleteAllExpires();`
 
-#### 使用
+**使用**
 
 ```
 <script src="src/web-storage-cache.js"></script>
@@ -119,6 +146,6 @@ wsCache.isSupported();
 </script> 
 ```
 
-### [EventEmitter](https://www.npmjs.com/package/EventEmitter)
+## [EventEmitter](https://www.npmjs.com/package/EventEmitter)
 
 > javascript中事件机制的实现
