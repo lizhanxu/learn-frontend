@@ -35,6 +35,8 @@
   取消
   npm config delete proxy
   npm config delete https-proxy
+  
+  有些情况下，设置npm代理反而不能访问
   ```
 
 ## 清空npm缓存
@@ -93,3 +95,22 @@ mirrorOptions:{
 node install.js
 ```
 
+```
+npm config set ELECTRON_MIRROR http://npm.taobao.org/mirrors/electron/
+```
+
+## python报错处理
+
+```
+npm config set python E:\tool\Python27\python.exe //路径换成自己的
+```
+
+```
+gyp ERR! stack Error: Command failed: C:\Users\pc\AppData\Local\Programs\Python\Python310\python.EXE -
+
+python3报错就换python2
+```
+
+## 重点
+
+各种代理及网络都设置了的情况下，仍然有网络相关报错，请 **更换网络**
