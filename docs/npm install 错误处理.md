@@ -39,6 +39,19 @@
   有些情况下，设置npm代理反而不能访问
   ```
 
+* 设置yarn代理
+
+  ```
+  设置
+  yarn config set proxy http://127.0.0.1:7890
+  yarn config set https-proxy http://127.0.0.1:7890
+  查看
+  yarn config list
+  取消
+  yarn config delete proxy
+  yarn config delete https-proxy
+  ```
+
 ## 清空npm缓存
 
 ```
