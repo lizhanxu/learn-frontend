@@ -35,5 +35,8 @@ node -v
 
 查看npm版本
 npm -v
+
+修改默认版本
+nvm alias default v16.20.2
 ```
 
